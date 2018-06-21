@@ -1,0 +1,106 @@
+<html>
+	<head>
+		<title> Latihan Java Script </title>
+	</head>
+	<body>
+		<form action="" method="POST">
+			<label for="nama" > Nama  </label>
+			<input type="text" name="nama" id="nama">
+			
+			<br>
+			
+			<label for="jurusan" > Jurusan  </label>
+			<Select name="jurusan" id="jurusan">
+				<option value="BSD-Bandung">BSD-BND </option>
+				<option value="BSD-Jakarta">BSD-JKT</option>
+			</select>
+			
+			<br>
+			
+			<label for="jumlah_kursi">	Jumlah Kursi  </label>
+			<input type="number" name="jumlah_kursi" id="jumlah_kursi">
+			
+			<br>
+			<br>
+			
+			<label for="status"> Status Member  </label>
+			<input type="radio" value="Member" id="rad1">Member
+			<input type="radio" value="Non" id="rad2">Non Member
+		
+			<br>
+			<br>
+			<input type="checkbox" id="check"> Saya setuju dengan data diatas
+			
+			<br>
+			
+			<input type="submit" name="submit_button" value="Proses" onclick="kirim();">
+			
+			<br>
+			
+			<textarea id="hasil" cols="40" rows="2"></textarea>
+		</form>
+		<script type="text/javascript">
+		
+				function kirim(){
+					var aggrement=document.getElementById("check");
+					var hasil=null;
+				
+				if (aggrement.checked){
+					//ambil nama
+					var nama=document.getElementById("nama").value;
+					//ambil jumlah kursi
+					var jumlah_kursi=document.getElementById("jumlah_kursi").value;
+					//deklarasi variabel untuk radio(member)
+					var radio1=document.getElementById("rad1");
+					var radio2=document.getElementById("rad2");
+					//ambil jurusan
+					var jurusan=document.getElementById("jurusan").value;
+					//variabel agar tidak ada data kosong
+					if (nama!="" && jumlah_kursi!="" && jurusan!="" && (radio1.checked||radio2.checked)){
+						//kondisi untuk cek jurusan dan menetepkan harga
+						if(jurusan=="BSD-Bandung"){
+							harga=100000;
+							}
+						else if (jurusan=="BSD-Jakarta"){
+							harga=50000;
+							}
+							
+						// menghitung total dari harga * jumlah kursi
+						total=harga*jumlah_kursi;
+						//mengecek status member dan menghitung diskon
+						if(radio1.checked)
+						{
+							status="Member";
+							diskon=total*0.3;
+						}
+						else if (radio2.checked)
+						{
+							status="Non";
+							diskon=0;
+						}
+						//menghitung total bayar yaitu total-diskon
+						bayar=total-diskon;
+						//mencetakk data di textarea
+						document.getElementById("hasil").innerHTML="Nama Pemesan : "+nama+ "\n"
+																	+"Jurusan : " +jurusan+ "\n"
+																	+"Harga Tiket : "+harga+ "\n"
+																	+"Jumlah Kursi : "+jumlah_kursi+ "\n"
+																	+"Total : "+total+ "\n"
+																	+"Status : "+status+ " maka diskon " +diskon+ "\n"
+																	+"Total yang harus dibayar : " +bayar;
+						}
+					else
+					{
+							//allert jika ada yg belum diisi
+							alert("Lengkapi terlebih dahulu");
+					}
+					
+				}
+				else{
+					//allert jika belum mencentang checkbox
+					alert("Anda wajib menyetujui ketentuan diatas");
+					}
+				}
+		</script>
+	</body>
+</html>
