@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Latihan Java Script</title>
+			<link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+		<style type="text/css">
+			body {
+				background-color: #d9d9d9;
+				margin:auto;
+				width:900px;
+			}
+		.header{
+				background: #d9d9d9;
+				text-align:center;}
+				
+		.nav-justified{
+			background-color:#009973;
+			}
+		.article {
+				clear: both;
+				background-color: #ffffff;
+				padding:10px;
+				text-align:left;
+				border-bottom: 50px solid #d9d9d9;
+			}
+		h4 {text-align:right;
+			font-size 22px;}
+		h5 {text-align:left;
+		}
+			
+		a {color:white;}
+		
+		.side {
+				padding: 20px;
+				background-color: #ffffff;
+				border-bottom: 40px solid #d9d9d9;
+				}
+		td {width:100px;}
+		
+	</style>
+	<body>
+		<div class="header">
+			<h3> Geeksfarm Blog </h3>
+			<h6> Tugas HTML,CSS,JAVASCRIPT DAN GIT </h6>
+		<div class="row">
+				<div class="col-md-9">
+					<nav class="navbar navbar-justified navbar">
+						<ul class="nav navbar nav-justified">
+							<li><a href="2206.html">HOME</a></li>
+							<li><a href ="kalkulator.html">APLIKASI KALKULATOR</a></li>
+							<li><a href="">APLIKASI KUIS</a></li>
+						</ul>
+					</nav>
+				<div class="article">
+					<h1> Program Kalkulator </h1>
+					<hr>
+					<p>Masukan angka yang akan dihitung dan pilih operator perhitungan yang akan<br>
+					dilaksanakan </p>
+					<br><br><br>
+					<table>
+						<tr>
+							<td> Angka 1 </td>
+							<td> Operasi </td>
+							<td> Angka 2 </td>
+							
+						</tr>
+						
+						 <tr>
+						 <td> <input type="text" name="angka" id="angka1"> </td>
+						 <td>  <p id="muncul"></p> </td>
+						 <td> <input type="text" name="angka" id="angka2"> </td>
+					 </tr>
+					 
+					 <tr>
+						 <td> <input type="radio" name="operasi" id="tambah" value="+" onchange="ganti();"> + </td>
+						 <td> <input type="radio" name="operasi" id="kurang" value="-" onchange="ganti();"> - </td>
+						 <td> <input type="radio" name="operasi" id="kali" value="*" onchange="ganti();"> * </td>
+						 <td> <input type="radio" name="operasi" id="bagi" value="/" onchange="ganti();"> / </td>
+					 </tr>
+					 
+					 <tr>
+						 <td> <input type="submit" name="submit_button" value="hitung" onclick="hitung();"> </td>
+						 <td> <input type="reset" name="reset_button" value="reset"> </td>
+					 </tr>
+						
+					</table>
+					<br>
+					<br>
+					
+					<p id="hasil"></p>
+					
+				</div>
+				</div>
+				<div class="col-md-3">
+					<div class="side">
+						<h5 style="color:blue;"><b><u> ILMUWAN JEPANG CIPTAKAN TEKNOLOGI YANG BISA MAMPU BACA PIKIRANMU</h5> </b></u>
+						<img src="gambar/angry.jpg" height="100px" width="100px">
+					</div>
+					<div class="side">
+						<h5 style="color:blue;"><b><u>APLIKASI KALKULATOR</h5> </b></u>
+						<p> Hitung dan temukan angka yang anda inginkan 
+						menggunakan aplikasi kalkulator di website ini. </p>
+					</div>
+					<div class="side">
+						<h5 style="color:blue;"><b><u>KUIS TEBAK NAMA MONSTER SMT</h5> </b></u>
+						<p> Penggemar video game SMT?
+						ikutilah kuis sederhana diwebsite ini</p>
+					</div>
+						</div>
+			 <script type="text/javascript">
+			 var radio1=document.getElementById("tambah");
+			 var radio2=document.getElementById("kurang");
+			 var radio3=document.getElementById("kali");
+			 var radio4=document.getElementById("bagi");
+			 
+			 function ganti() {
+
+				 if(radio1.checked){
+					 document.getElementById("muncul").innerHTML=radio1.value;
+				 }
+				 else if(radio2.checked){
+					 document.getElementById("muncul").innerHTML=radio2.value;
+				 }
+				 else if(radio3.checked){
+					 document.getElementById("muncul").innerHTML=radio3.value;
+				 }
+				 else if(radio4.checked){
+					 document.getElementById("muncul").innerHTML=radio4.value;
+				 }
+			 }
+			 
+			function hitung(){
+			var abjad1=parseInt(document.getElementById("angka1").value);
+			var abjad2=parseInt(document.getElementById("angka2").value);
+			var hasilangka;
+			
+			 if(radio1.checked){
+			 hasilangka=abjad1+abjad2;
+					 document.getElementById("hasil").innerHTML=abjad1+ radio1.value+ abjad2+"="+hasilangka;
+				 }
+				 else if(radio2.checked){
+				 hasilangka=abjad1-abjad2;
+					 document.getElementById("hasil").innerHTML=abjad1+ radio2.value+ abjad2+"="+hasilangka;
+				 }
+				 else if(radio3.checked){
+				 hasilangka=abjad1*abjad2;
+					 document.getElementById("hasil").innerHTML=abjad1+ radio3.value+ abjad2+"="+hasilangka;
+				 }
+				 else if(radio4.checked){
+				 hasilangka=abjad1/abjad2;
+					 document.getElementById("hasil").innerHTML=abjad1+ radio4.value+ abjad2+"="+hasilangka;
+				 }
+			 }
+			
+			</script>	
+				
+				
+	</body>
+</html>
+						
